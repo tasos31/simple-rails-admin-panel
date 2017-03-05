@@ -1,0 +1,26 @@
+<%add_breadcrumb "Home"%>
+<%add_breadcrumb "News"%>
+<hr>
+<div class="callout callout-success fade in">
+	<h5>News</h5>
+	<p>News Articles</p>
+</div>
+<div class="breadcrumb-line">
+  <ul class="breadcrumb">
+     <%= render_breadcrumbs :tag => :li, :separator => "" %>
+  </ul>
+  <div class="visible-xs breadcrumb-toggle">
+    <a class="btn btn-link btn-lg btn-icon" data-toggle="collapse" data-target=".breadcrumb-buttons"><i class="icon-menu2"></i></a>
+  </div>
+  <ul class="breadcrumb-buttons collapse"></ul>
+</div>
+<div class="">
+<%=	link_to "Add Article", {controller: 'articles', action: 'new'}, remote: true,
+	 :class => "btn btn-lg btn-success btn-fill", :style=>"width:50%"%>
+</div>
+<hr>
+<% if @articles.any? %>
+<%= render @articles %>
+<% else %>
+	<p>No Articles yet.</p>
+<% end %>

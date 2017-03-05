@@ -1,0 +1,5 @@
+$('#modal-placeholder').html("");
+
+$('#modal-placeholder').html("<%= escape_javascript render(:partial => 'notifications/modals/createModal') %>");
+
+$('#new_modal').modal('toggle');

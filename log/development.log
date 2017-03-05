@@ -1,0 +1,1253 @@
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from block in included at /home/tasos/.rvm/gems/ruby-2.3.1@meze/bundler/gems/remotipart-aa0386690bd2/lib/remotipart/render_overrides.rb:9)
+  [1m[35m (900.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (114.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateAdmins (20161121112545)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "admins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "password_digest" varchar, "version_number" integer, "email" varchar, "telephone" varchar, "address" varchar, "image" varchar, "products_last_position" integer, "wines_last_position" integer, "services_last_position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "admin_translations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "admin_id" integer NOT NULL, "locale" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "admin_translations" ADD "title" varchar[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "admin_translations" ADD "text" text[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_admin_translations_on_admin_id" ON "admin_translations" ("admin_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_admin_translations_on_admin_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_admin_translations_on_admin_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_admin_translations_on_locale" ON "admin_translations" ("locale")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161121112545"]]
+  [1m[35m (88.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateArticles (20161121113036)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "articles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "article_translations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer NOT NULL, "locale" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "article_translations" ADD "title" varchar[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "article_translations" ADD "text" text[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_article_translations_on_article_id" ON "article_translations" ("article_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_article_translations_on_article_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_article_translations_on_article_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_article_translations_on_locale" ON "article_translations" ("locale")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161121113036"]]
+  [1m[35m (120.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateEvents (20161121113108)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image" varchar, "datetime" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "event_translations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "event_id" integer NOT NULL, "locale" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "event_translations" ADD "title" varchar[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "event_translations" ADD "text" text[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_event_translations_on_event_id" ON "event_translations" ("event_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_event_translations_on_event_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_event_translations_on_event_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_event_translations_on_locale" ON "event_translations" ("locale")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161121113108"]]
+  [1m[35m (112.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateNotifications (20161121113520)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "notification_translations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "notification_id" integer NOT NULL, "locale" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "notification_translations" ADD "title" varchar[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "notification_translations" ADD "text" text[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_notification_translations_on_notification_id" ON "notification_translations" ("notification_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_notification_translations_on_notification_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_notification_translations_on_notification_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_notification_translations_on_locale" ON "notification_translations" ("locale")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161121113520"]]
+  [1m[35m (117.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateProducts (20161121113551)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image" varchar, "position" integer, "price" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "product_translations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer NOT NULL, "locale" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "product_translations" ADD "title" varchar[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "product_translations" ADD "text" text[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_product_translations_on_product_id" ON "product_translations" ("product_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_product_translations_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_product_translations_on_product_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_product_translations_on_locale" ON "product_translations" ("locale")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161121113551"]]
+  [1m[35m (80.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-03-05 21:35:20 UTC], ["updated_at", 2017-03-05 21:35:20 UTC]]
+  [1m[35m (94.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_admin_translations_on_locale' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_admin_translations_on_locale' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_admin_translations_on_admin_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_admin_translations_on_admin_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_article_translations_on_locale' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_article_translations_on_locale' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_article_translations_on_article_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_article_translations_on_article_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_event_translations_on_locale' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_event_translations_on_locale' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_event_translations_on_event_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_event_translations_on_event_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_notification_translations_on_locale' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_notification_translations_on_locale' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_notification_translations_on_notification_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_notification_translations_on_notification_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_product_translations_on_locale' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_product_translations_on_locale' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_product_translations_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_product_translations_on_product_id' AND type='index'
+[0m
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from block in included at /home/tasos/.rvm/gems/ruby-2.3.1@meze/bundler/gems/remotipart-aa0386690bd2/lib/remotipart/render_overrides.rb:9)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "admins" ("username", "password_digest", "version_number", "email", "telephone", "address", "products_last_position", "wines_last_position", "services_last_position", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "simplerailsadmin"], ["password_digest", "$2a$10$au8z27QvammbReU/e2QjuuAFQ6e.dFy15FjBf/Y7p6Q00J4i9nuE6"], ["version_number", 0], ["email", "simplerailsadmin@gmail.com"], ["telephone", "00000000"], ["address", "SimpleRailsAdmin 00"], ["products_last_position", 0], ["wines_last_position", 0], ["services_last_position", 0], ["created_at", 2017-03-05 21:35:25 UTC], ["updated_at", 2017-03-05 21:35:25 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "admin_translations" ("admin_id", "locale", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["admin_id", 1], ["locale", "en"], ["created_at", 2017-03-05 21:35:25 UTC], ["updated_at", 2017-03-05 21:35:25 UTC]]
+  [1m[35m (407.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" ORDER BY "admins"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mAdmin::Translation Load (0.3ms)[0m  [1m[34mSELECT "admin_translations".* FROM "admin_translations" WHERE "admin_translations"."admin_id" = ?[0m  [["admin_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "admins" SET "updated_at" = ? WHERE "admins"."id" = ?[0m  [["updated_at", 2017-03-05 21:35:26 UTC], ["id", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "admin_translations" SET "title" = ?, "text" = ?, "updated_at" = ? WHERE "admin_translations"."id" = ?[0m  [["title", "SimpleRailsAdmin"], ["text", "SimpleRailsAdmin"], ["updated_at", 2017-03-05 21:35:26 UTC], ["id", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "admin_translations" ("admin_id", "locale", "created_at", "updated_at", "title", "text") VALUES (?, ?, ?, ?, ?, ?)[0m  [["admin_id", 1], ["locale", "de"], ["created_at", 2017-03-05 21:35:26 UTC], ["updated_at", 2017-03-05 21:35:26 UTC], ["title", "SimpleRailsAdmin"], ["text", "SimpleRailsAdmin"]]
+  [1m[35m (71.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "admins" SET "updated_at" = ? WHERE "admins"."id" = ?[0m  [["updated_at", 2017-03-05 21:35:26 UTC], ["id", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "admin_translations" ("admin_id", "locale", "created_at", "updated_at", "title", "text") VALUES (?, ?, ?, ?, ?, ?)[0m  [["admin_id", 1], ["locale", "el"], ["created_at", 2017-03-05 21:35:26 UTC], ["updated_at", 2017-03-05 21:35:26 UTC], ["title", "SimpleRailsAdmin"], ["text", "SimpleRailsAdmin"]]
+  [1m[35m (102.2ms)[0m  [1m[36mcommit transaction[0m
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from block in included at /home/tasos/.rvm/gems/ruby-2.3.1@meze/bundler/gems/remotipart-aa0386690bd2/lib/remotipart/render_overrides.rb:9)
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from block in included at /home/tasos/.rvm/gems/ruby-2.3.1@meze/bundler/gems/remotipart-aa0386690bd2/lib/remotipart/render_overrides.rb:9)
+Started GET "/" for 127.0.0.1 at 2017-03-05 23:35:36 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started HEAD "/" for 127.0.0.1 at 2017-03-05 23:35:36 +0200
+Processing by HomeController#login as HTML
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  Rendering home/login.html.erb within layouts/application
+  Rendered home/login.html.erb within layouts/application (9.1ms)
+Processing by HomeController#login as HTML
+  Rendering home/login.html.erb within layouts/application
+  Rendered home/login.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 3256ms (Views: 3248.6ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 3313ms (Views: 3303.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.min.self-c8d5c942f6af1547ec3198e764a26c0e10a419ba76d33169ed41ba46e79115ce.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:39 +0200
+Started GET "/assets/londinium-theme.self-3ba6a7821f1a4154ecc74a11acc75a870e1862704badf86f7d0499a30cc8f0f1.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:39 +0200
+Started GET "/assets/icons.self-b0af14b3571e92cc6747018f66e2b070bb4e4112b33cb0847e7ab73f26eb56f0.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:39 +0200
+Started GET "/assets/font-awesome.self-2a86d2017f4b74f22943750b3b50b9cb753581bab96cbdaaf2df53f4c04c995b.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:39 +0200
+Started GET "/assets/styles.self-fa6d9b4546771ba0a0a6916a512d26ebdc417d00c8d5f336ef367d7e66281674.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:39 +0200
+Started GET "/assets/jquery-ui/theme.self-830c3407ba1359ea36eee978235be14de5b78dacfa658a31226fe4f2b0faa7e7.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:39 +0200
+Started GET "/assets/jquery-ui/accordion.self-aa0730fc025317fed4feff2aa5fc07cba5a545dfc5c913a2984ba6f8695b29fb.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:39 +0200
+Started GET "/assets/jquery-ui/core.self-e4bdefd3813c8a715955a6c65b9e730846dcae6a0576618563d635ff0b18a3ca.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:39 +0200
+Started GET "/assets/jquery-ui/button.self-c459cf02498a2311af9ededbe220879035792a81f5f8478d47edd8f9aa202be2.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:39 +0200
+Started GET "/assets/jquery-ui/checkboxradio.self-98c7262aff3710f07beb8142dc6fb7c88ef0596dedb7909984e5554e06450760.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:39 +0200
+Started GET "/assets/jquery-ui/autocomplete.self-f0b810a4a7bb8c90994675d7c5bfe636d615a5785cf81cae3340aa5e6adc55ca.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:39 +0200
+Started GET "/assets/jquery-ui/controlgroup.self-5f4cfb6eb047fc4a163c63848156a4bf2dc4daf33358aff3aa63fa10a31f9011.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/assets/jquery-ui/datepicker.self-3047420a03ae2233615bf455c1e7804ce8804db93879fcdcd757f73ce60ebec1.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/jquery-ui/draggable.self-37c2539362d9d0af129d37fb409f6c33f35d75492c61c05a8dc4f278a0d9057f.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/jquery-ui/dialog.self-cfc405a38e0296def8d55cc92cac53d0a2006709b2376a36a31d2f31e5fa839d.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/jquery-ui/progressbar.self-1b6f4c0b705f8fa475f566643777a7a62dc3bcad5e8d8c8b7a643226827a35f7.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/jquery-ui/resizable.self-664ac62d66e39e618f230faeba7e4745104a6217009c0f02a5ef78d00146c9b8.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/jquery-ui/menu.self-5bc653bb1a86d1ac2565267f7c29a590fb1b07b9abc75d696d18408c376fa1e1.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/jquery-ui/selectmenu.self-4c64fa52068bb0ab5ab7beee995fb73714c5cfb571e1a9878ae67d4221ba62ad.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/jquery-ui/sortable.self-cfd0c3e3334e30aac7be47a8577778f43a41d737fd78981dca9f2ebc05351c31.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/jquery-ui/spinner.self-7031500c1e002a164c88716bc7e947a35bf63ac016274357338097bf35cab77d.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/jquery-ui/slider.self-4eeb158ab946298510cd1c33edbbb15be2310642f056555b156e27417fdd85bc.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/jquery-ui/tooltip.self-a7e58af2915ed216ce5a397dbe7db194a5c1d51e8876136cae3903d9ae41c6d9.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/jquery-ui/tabs.self-d3e3dd1ce30228648f314c5c5bb8c40cb8aecdad4bbda8d1b1eb8eb496cda303.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/jquery-ui/selectable.self-19c99ff0e762c31563133c19f00eaea0c6901bc26757751c8eef675ef117a977.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/jquery-ui/base.self-76599afe9b7687b8479ce5344363edbf948b417613a3beec7a7a74bacb0cc1c8.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/jquery-ui/all.self-131cc322272828d76a6354d061a4660293e55426159aa19231ad578926b73f4a.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/jquery-ui.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/toastr_rails.self-3a07214a1b4ffc37b5e0333111d7c0542855e38843c95ee76bc7bd3d25d6adc9.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/jquery.datetimepicker.self-908c70b43aa13956d0cac5aed0ea51f507e28dd5c27eabd7800509bafed4c668.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/admin.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/api.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/assets/articles.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/colors.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/assets/home.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/notifications.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/properties.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/videos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/application.self-b59b093c02a353106f1ab3171afc8b2f303792d16086006d9226af6daf192c0f.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/jqueryuidownloaded.self-bac161e5cdca8c4d90a254b8a05bbf6fe02083b019e0ff9bf3d5602a918d6fbf.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/jquery.iframe-transport.self-9d6de1e3d97369f20a85456477db38a3d2b674761f4a252275201ec0272793a4.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/jquery.remotipart.self-1660679e325ee534ce863e680eb6ad0bc9739d262594dc1337a2171e5c19c939.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/jquery.datetimepicker.full.min.self-93dd3ea1b11297f5cc1cdc421aa83a7c4fece30a4d272d6258801f81c85b541b.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/sparkline.min.self-d1340dd742e4521127575ed893142d01f7818a8f8e3c5a65bb9074a1ae98e7e2.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/uniform.min.self-0b4dbd929024a70670244690b8bb792ee94f4ad0251f0aee1316fa747136e453.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/select2.min.self-815b19b1348f358cc09a01e38085d4c4fc3377f0fcfc07ee4b2cc5f81821cd4a.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/inputmask.self-a4d7b91a464b9ec32b81d9e2698aa2f8f917ef67e83051753e4cf20720498559.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/autosize.self-67c76e9f08c98700b7b8a92969b00c8555476509dd443e46298415950fe1e33e.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/inputlimit.min.self-dd8459271fb27bc39b4e6c93b87b2a70f4c0c4ec04b1a34a73bb9961ebf0770f.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/listbox.self-244ebc44a3d81a3a91a4800a0981e57be7a55eda762077c8d64ddfd27ac021ba.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/validate.min.self-64f7aef4326912f3df907c8a6f219430efde22c4eb14843c9fd82e65bb111486.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/multiselect.self-8463dea9e4132e5574c2d7f63f7375b1874773930e5181def6c791f5f36cb6c4.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/tags.min.self-84c634fe6a88779bd6e8b4ec2bf3cefd1426574ac60b796faa2c690a7310e340.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/switch.min.self-15b9a41218bfc08b714f947a295c48a8d5a9edfa2dfb7a5193b3649a119b57b6.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/plupload.full.min.self-f3ce16ea1dd09c124f5de99240af69122999282c404cd1d16d29c02fe785c7f4.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/plupload.queue.min.self-539e2ab7704ee9625cd3630d3d8babca35c777f2030f4be097963eddcc490b68.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/wysihtml5.min.self-5cd648eb5f6daab5f90fb837e6ac945ac6a51a5570ac794c3ae1aadcca6f58f6.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/daterangepicker.self-ea57538e3a7f0a45a1fe2db61078dcc7df40bae938d95b11489271e15f96cb53.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/toolbar.self-97521aa46565b8d889a201ceff7699b5081486946b2c4d46b5988f7c32792821.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/moment.self-b3eb7c89a2f960862ce0f9fe0df5a951eda5429c651cb83139fd9d3530e12832.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/fancybox.min.self-6b1ee413f3f0bee70b292c97973eb1d2eeeed04e6ee2a977997b8e5d9ef004c3.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/jgrowl.min.self-2fc7b7b2a52f0f84ef37fc5f939e557c16c046be460af2aa5d4fecb0f8beaef2.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/colorpicker.self-0c8aea71fd994c65fb648f78f61a863a31cf23dd638c152f21e9928a47d62421.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/datatables.min.self-21ccfb2f076e937a639207b1d5c2c5ad8ef19504c250348f598808ce7928b750.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap.min.self-62f1594da76560472064bb913b117c6e0d2b1a3ac57b211d1313da3f1f3c1fd7.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/timepicker.min.self-966dd7d45002a03e75d9925b92cb08da72f2bd56356d84114b1db20efdc9580b.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/froala_editor.min.self-fb8340325ea29267abf19476790d737ef130e8c9e0e2fa674e85a06ac1e3e9cf.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/wysihtml5x-toolbar.self-f835bfe0ef8681a04b930aafeb1f792406f9426924cc7d7bf8d08463415b8120.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/handlebars.runtime.min.self-5fa4bfc769ba3f6e730c2453d45ab26222e546e884ece044b0781c93c4cfd65d.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/templates.self-3763bc32531aa6eead5161ab352ad4fd9a42814041116e110de42647257fd7fc.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/bootstrap3-wysihtml5.self-afc297bd9a94e1ae19f3084ece7269c7329614dbf0b8573bc8e150a13a903365.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/commands.self-0e434cd483ee027fcbdceb27a1784b62509766f11a510aa400e559e03082f132.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/en-US.self-4c2b45f8023b8a34240c7a73e6f9692b425fd8797c94ed3f7a91cbe649111959.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/ar-AR.self-fb7191fb2ecd3c03c7963b92388bda0841ab61acd09fe480c05b2ad61b2e57a4.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/bg-BG.self-afb9ab686b835e4afbad9f0ea5ba199da599bff1c269db8e559f667d7d44804a.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/ca-CT.self-8cd7ee2c87b54222f655018f7461823115c7ca643632265726c4b1e2476639c1.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/cs-CZ.self-4c1529662dc4f2606180b504efbe1412b37cc83064b15325288a78be32ab8883.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/index.self-d088784b7ecb87f1ea17e6f982fa968ffefcc07b79de6ecc548fc00242868da6.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/da-DK.self-20e075f6260a74d57eb083bcf4d5a1a8ad338cf278864e2bd0245e5f2f623cfd.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/de-DE.self-c11bc5b7afce00f5bf59ffbe21ca636a9d5c381b64a4376d214d272ad2a4439d.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/el-GR.self-b16105683ed57bb29b8ad85eb748d28defc2ff4be63daf26f750b7fc0faa78ec.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/es-AR.self-26dc5ae2bb06e67ba87f4a9e2b7734cfa092119f84c0695decc2f4ce7c7987e2.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/hu-HU.self-18d3d0527e066af8f0ae832e8fa14c08f78127742626ce6384e2fcb534488bdd.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/es-ES.self-f716a6fd7173d4b326337d70f65a745cdc32773fb7acbe4e651687c62a6d4557.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/fr-NL.self-e1f48325d6bc9c4de4d290e66af957dd4bd244fb503b6554176b0bc4b76c5459.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/fr-FR.self-8de658c992e7d17284b726dfb992aadb2532eec6b92fcb38eb7569468f7bea99.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/hr-HR.self-ba87f3c60f0e4ee30d59588a0a771f73ad97ef27ca05fc64ec0391ad7510a06c.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/it-IT.self-1f2c8e5c42added0f086c9ac096ac042143a20bf49d03e462ae9d6cd57b64034.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/il-HE.self-e6650361c978f48d6a74f42fe91c6b13661d372e2f758522853257a041c752e1.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/ko-KR.self-b8936e6d59275106c235eb1a97cb68370c0163b4fa9e0b44f00c0436db2292bf.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/nb-NB.self-3e8240c69994496cf441cc0ab3e9673fd492288754f323ff7fb64c165b019a3f.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/ja-JP.self-b3091cdf99d3babe62c2d93cf4dd7cf022dca4787267878c234488ed22d07ef4.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/lt-LT.self-7f253ec52f9496eb414171fbdc010f2125380f42873aaa37515dbe07d8fdd9f2.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/mo-MD.self-8ddec7ec2e66fda7d7fa11a5e63a5ee57d4f15657108887fb936b3cc05d6d5e8.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/nl-NL.self-cab375c45160e5cf7ad837709b3c0eb1383c2f5e97e8a472b8e154d573bbfce6.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/pl-PL.self-cd60c78d631218dd2cc50482bff1d73e5fa49f550b77247993b5f7f7a5dde5b7.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/sk-SK.self-8020b2c40558a751d07b9103ee5751b3475fa21b789bb229cbdd8400c47fb509.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/sv-SE.self-11e0c458f051e5f30391e7845e9cb1886b78b691f61b269afb647a6c2a4e64fb.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/pt-BR.self-7e4f1d4e0204a29ae297253a1a47101faff95c27c01e741713419b6763e830fc.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/ru-RU.self-a9c5ea0af8b8224d5b36706f9a658f89918af1475df24652f7dac85f041508bc.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/tr-TR.self-6ac285f8beb424949359149a31c065c55ce4674093ea84fe4968d38b88b2632e.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/zh-CN.self-2185bbc384d0c43913421ad2ea09c7b71748a5b20239948e702b7c6fa27797c4.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/ua-UA.self-c92e661da6e89a9b0127ef8f4b576bc8857ee6acb101588ec5cb92e2c93ac92e.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/toastr.self-bea5554353bcc2cf59b67143981ba70115be76a50ce64627c188cae082a7cc31.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/index.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/bootstrap-wysihtml5/locales/zh-TW.self-7e78da4b598799c68f05e9b41eb435919ba7cceedb97ff4abe063b87c19826ca.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/toastr_rails.self-4a4ebdc088fd1f7d00144e5aba05afda8ca72493403c3254ea3ff8eecedabd9a.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/application.self-511d936d65a99eb1cea57fc2258a334bddd1a2acfc7ee874b4981bc504abf38b.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/application1.self-70c1c0ed13ca34fd84ca5fc57e478380f90488da18e2379d690d7e227cc4942f.js?body=1" for 127.0.0.1 at 2017-03-05 23:35:40 +0200
+Started GET "/assets/icons.woff" for 127.0.0.1 at 2017-03-05 23:35:41 +0200
+Started POST "/login" for 127.0.0.1 at 2017-03-05 23:35:51 +0200
+Processing by AdminController#login as JS
+  Parameters: {"utf8"=>"✓", "admin"=>{"username"=>"simplerails", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."username" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["username", "simplerails"], ["LIMIT", 1]]
+  Rendering admin/wrong_credentials.js.erb
+  Rendered admin/wrong_credentials.js.erb (0.5ms)
+Completed 200 OK in 42ms (Views: 4.4ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-03-05 23:36:12 +0200
+Processing by AdminController#login as JS
+  Parameters: {"utf8"=>"✓", "admin"=>{"username"=>"simplerailsadmin", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."username" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["username", "simplerailsadmin"], ["LIMIT", 1]]
+Completed 200 OK in 81ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2017-03-05 23:36:13 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/_homePartial.html.erb (1.1ms)
+  Rendered home/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 159ms (Views: 157.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/app_logo.png" for 127.0.0.1 at 2017-03-05 23:36:13 +0200
+Started GET "/assets/nav_arrow_right.png" for 127.0.0.1 at 2017-03-05 23:36:13 +0200
+Started GET "/assets/icons.woff" for 127.0.0.1 at 2017-03-05 23:36:13 +0200
+Started GET "/articles/load_partial" for 127.0.0.1 at 2017-03-05 23:36:17 +0200
+Processing by ArticlesController#load_partial as JS
+  Rendering articles/load_partial.js.erb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" INNER JOIN "article_translations" ON "article_translations"."article_id" = "articles"."id" WHERE "article_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered articles/_articlePartial.html.erb (10.8ms)
+  Rendered articles/load_partial.js.erb (15.8ms)
+Completed 200 OK in 38ms (Views: 21.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/events/load_partial" for 127.0.0.1 at 2017-03-05 23:36:17 +0200
+Processing by EventsController#load_partial as JS
+  Rendering events/load_partial.js.erb
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "event_translations" ON "event_translations"."event_id" = "events"."id" WHERE "event_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered events/_eventPartial.html.erb (5.7ms)
+  Rendered events/load_partial.js.erb (11.9ms)
+Completed 200 OK in 34ms (Views: 15.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/products/load_partial" for 127.0.0.1 at 2017-03-05 23:36:18 +0200
+Processing by ProductsController#load_partial as JS
+  Rendering products/load_partial.js.erb
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" INNER JOIN "product_translations" ON "product_translations"."product_id" = "products"."id" WHERE "product_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered products/_productPartial.html.erb (6.1ms)
+  Rendered products/load_partial.js.erb (11.4ms)
+Completed 200 OK in 34ms (Views: 15.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/products/load_partial" for 127.0.0.1 at 2017-03-05 23:36:19 +0200
+Processing by ProductsController#load_partial as JS
+  Rendering products/load_partial.js.erb
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" INNER JOIN "product_translations" ON "product_translations"."product_id" = "products"."id" WHERE "product_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered products/_productPartial.html.erb (1.5ms)
+  Rendered products/load_partial.js.erb (6.0ms)
+Completed 200 OK in 20ms (Views: 13.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/wines/load_partial" for 127.0.0.1 at 2017-03-05 23:36:19 +0200
+  
+ActionController::RoutingError (uninitialized constant WinesController):
+  
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:268:in `const_get'
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:268:in `block in constantize'
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:266:in `each'
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:266:in `inject'
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:266:in `constantize'
+actionpack (5.0.1) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:30:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+/home/tasos/.rvm/gems/ruby-2.3.1@meze/bundler/gems/remotipart-aa0386690bd2/lib/remotipart/middleware.rb:27:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.0ms)
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (8.9ms)
+Started GET "/services/load_partial" for 127.0.0.1 at 2017-03-05 23:36:20 +0200
+  
+ActionController::RoutingError (uninitialized constant ServicesController):
+  
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:268:in `const_get'
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:268:in `block in constantize'
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:266:in `each'
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:266:in `inject'
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:266:in `constantize'
+actionpack (5.0.1) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:30:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+/home/tasos/.rvm/gems/ruby-2.3.1@meze/bundler/gems/remotipart-aa0386690bd2/lib/remotipart/middleware.rb:27:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.5ms)
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (5.1ms)
+Started GET "/notifications/load_partial" for 127.0.0.1 at 2017-03-05 23:36:20 +0200
+Processing by NotificationsController#load_partial as JS
+  Rendering notifications/load_partial.js.erb
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "notifications" INNER JOIN "notification_translations" ON "notification_translations"."notification_id" = "notifications"."id" WHERE "notification_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered notifications/_notificationPartial.html.erb (5.7ms)
+  Rendered notifications/load_partial.js.erb (10.7ms)
+Completed 200 OK in 30ms (Views: 14.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/admin/load_partial" for 127.0.0.1 at 2017-03-05 23:36:21 +0200
+Processing by AdminController#load_partial as JS
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" ORDER BY "admins"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering admin/load_partial.js.erb
+  [1m[36mAdmin::Translation Load (0.2ms)[0m  [1m[34mSELECT "admin_translations".* FROM "admin_translations" WHERE "admin_translations"."admin_id" = ?[0m  [["admin_id", 1]]
+  Rendered admin/_adminPartial.html.erb (39.4ms)
+  Rendered admin/load_partial.js.erb (43.1ms)
+Completed 500 Internal Server Error in 52ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `title_el' for #<Admin:0x007f03ea9352e8>
+Did you mean?  title_de
+               title_en
+               title_de=
+               title_en=):
+    64:                     <% I18n.available_locales.map.with_index(1) do |locale, index| %>
+    65:                       <div id='tab_<%=@admin.class.name+@admin.id.to_s+"_"+locale.to_s%>' class='tab-pane fade in <%=index==1 ? 'active': ''%>'>
+    66:                         <td style="height:5px" class="panel-heading">
+    67:                           <%= @admin.send("title_#{locale}") %> 
+    68:                         </td>
+    69:                         <hr>
+    70:               <td style="">
+  
+app/views/admin/_adminPartial.html.erb:67:in `block in _app_views_admin__admin_artial_html_erb___782144306298223894_69827399057480'
+app/views/admin/_adminPartial.html.erb:64:in `map'
+app/views/admin/_adminPartial.html.erb:64:in `with_index'
+app/views/admin/_adminPartial.html.erb:64:in `_app_views_admin__admin_artial_html_erb___782144306298223894_69827399057480'
+app/views/admin/load_partial.js.erb:1:in `_app_views_admin_load_partial_js_erb___3289798242617956535_17908380'
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.7ms)
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (10.0ms)
+Started GET "/notifications/load_partial" for 127.0.0.1 at 2017-03-05 23:36:22 +0200
+Processing by NotificationsController#load_partial as JS
+  Rendering notifications/load_partial.js.erb
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "notifications" INNER JOIN "notification_translations" ON "notification_translations"."notification_id" = "notifications"."id" WHERE "notification_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered notifications/_notificationPartial.html.erb (1.6ms)
+  Rendered notifications/load_partial.js.erb (5.9ms)
+Completed 200 OK in 18ms (Views: 11.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/services/load_partial" for 127.0.0.1 at 2017-03-05 23:36:22 +0200
+  
+ActionController::RoutingError (uninitialized constant ServicesController):
+  
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:268:in `const_get'
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:268:in `block in constantize'
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:266:in `each'
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:266:in `inject'
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:266:in `constantize'
+actionpack (5.0.1) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:30:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+/home/tasos/.rvm/gems/ruby-2.3.1@meze/bundler/gems/remotipart-aa0386690bd2/lib/remotipart/middleware.rb:27:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.2ms)
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (6.3ms)
+Started GET "/wines/load_partial" for 127.0.0.1 at 2017-03-05 23:36:23 +0200
+  
+ActionController::RoutingError (uninitialized constant WinesController):
+  
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:268:in `const_get'
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:268:in `block in constantize'
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:266:in `each'
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:266:in `inject'
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:266:in `constantize'
+actionpack (5.0.1) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:30:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+/home/tasos/.rvm/gems/ruby-2.3.1@meze/bundler/gems/remotipart-aa0386690bd2/lib/remotipart/middleware.rb:27:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.9ms)
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (5.4ms)
+Started GET "/products/load_partial" for 127.0.0.1 at 2017-03-05 23:36:23 +0200
+Processing by ProductsController#load_partial as JS
+  Rendering products/load_partial.js.erb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" INNER JOIN "product_translations" ON "product_translations"."product_id" = "products"."id" WHERE "product_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered products/_productPartial.html.erb (2.1ms)
+  Rendered products/load_partial.js.erb (5.9ms)
+Completed 200 OK in 20ms (Views: 13.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/events/load_partial" for 127.0.0.1 at 2017-03-05 23:36:24 +0200
+Processing by EventsController#load_partial as JS
+  Rendering events/load_partial.js.erb
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "event_translations" ON "event_translations"."event_id" = "events"."id" WHERE "event_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered events/_eventPartial.html.erb (3.4ms)
+  Rendered events/load_partial.js.erb (9.0ms)
+Completed 200 OK in 22ms (Views: 15.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/articles/load_partial" for 127.0.0.1 at 2017-03-05 23:36:25 +0200
+Processing by ArticlesController#load_partial as JS
+  Rendering articles/load_partial.js.erb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" INNER JOIN "article_translations" ON "article_translations"."article_id" = "articles"."id" WHERE "article_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered articles/_articlePartial.html.erb (1.8ms)
+  Rendered articles/load_partial.js.erb (6.4ms)
+Completed 200 OK in 17ms (Views: 10.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/home/load_partial" for 127.0.0.1 at 2017-03-05 23:36:25 +0200
+Processing by HomeController#load_partial as JS
+  Rendering home/load_partial.js.erb
+  Rendered home/_homePartial.html.erb (0.6ms)
+  Rendered home/load_partial.js.erb (5.2ms)
+Completed 200 OK in 19ms (Views: 12.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/load_partial" for 127.0.0.1 at 2017-03-05 23:36:58 +0200
+Processing by ArticlesController#load_partial as JS
+  Rendering articles/load_partial.js.erb
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" INNER JOIN "article_translations" ON "article_translations"."article_id" = "articles"."id" WHERE "article_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered articles/_articlePartial.html.erb (2.0ms)
+  Rendered articles/load_partial.js.erb (6.6ms)
+Completed 200 OK in 24ms (Views: 17.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2017-03-05 23:36:59 +0200
+Processing by ArticlesController#new as JS
+  Rendering articles/new.js.erb
+  Rendered articles/modals/_createModal.html.erb (21.0ms)
+  Rendered articles/new.js.erb (24.8ms)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `title_el' for #<Article id: nil, image: nil, created_at: nil, updated_at: nil>
+Did you mean?  title_de
+               title_en
+               title_de=
+               title_en=):
+    32:             <% I18n.available_locales.map.with_index(1) do |locale, index| %>
+    33:             <div id='tab<%=locale%>' class='tab-pane fade in <%=index==1 ? 'active': ''%>'>                                         
+    34:               <h5> <%= I18n.t('language_name', locale: locale) %> Title: </h5>
+    35:               <%= f.text_field "title_#{locale}".to_sym,:class => 'form-control'%>
+    36:               <h5> <%= I18n.t('language_name', locale: locale) %> Text: <small> *If no text, insert a blank space</small></h5>
+    37:               <%= f.text_area "text_#{locale}".to_sym ,:style => "height: 150px;",:class => 'wysihtml5 editor wysihtml5-editor', :value=>" "%>
+    38:             </div>
+  
+app/views/articles/modals/_createModal.html.erb:35:in `block (2 levels) in _app_views_articles_modals__create_odal_html_erb___80783978999981772_69827347656380'
+app/views/articles/modals/_createModal.html.erb:32:in `map'
+app/views/articles/modals/_createModal.html.erb:32:in `with_index'
+app/views/articles/modals/_createModal.html.erb:32:in `block in _app_views_articles_modals__create_odal_html_erb___80783978999981772_69827347656380'
+app/views/articles/modals/_createModal.html.erb:13:in `_app_views_articles_modals__create_odal_html_erb___80783978999981772_69827347656380'
+app/views/articles/new.js.erb:3:in `_app_views_articles_new_js_erb__3592764709930479152_69827347683360'
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.7ms)
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.2ms)
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (10.8ms)
+Started GET "/articles/new" for 127.0.0.1 at 2017-03-05 23:37:01 +0200
+Processing by ArticlesController#new as JS
+  Rendering articles/new.js.erb
+  Rendered articles/modals/_createModal.html.erb (13.5ms)
+  Rendered articles/new.js.erb (18.6ms)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `title_el' for #<Article id: nil, image: nil, created_at: nil, updated_at: nil>
+Did you mean?  title_de
+               title_en
+               title_de=
+               title_en=):
+    32:             <% I18n.available_locales.map.with_index(1) do |locale, index| %>
+    33:             <div id='tab<%=locale%>' class='tab-pane fade in <%=index==1 ? 'active': ''%>'>                                         
+    34:               <h5> <%= I18n.t('language_name', locale: locale) %> Title: </h5>
+    35:               <%= f.text_field "title_#{locale}".to_sym,:class => 'form-control'%>
+    36:               <h5> <%= I18n.t('language_name', locale: locale) %> Text: <small> *If no text, insert a blank space</small></h5>
+    37:               <%= f.text_area "text_#{locale}".to_sym ,:style => "height: 150px;",:class => 'wysihtml5 editor wysihtml5-editor', :value=>" "%>
+    38:             </div>
+  
+app/views/articles/modals/_createModal.html.erb:35:in `block (2 levels) in _app_views_articles_modals__create_odal_html_erb___80783978999981772_69827381474900'
+app/views/articles/modals/_createModal.html.erb:32:in `map'
+app/views/articles/modals/_createModal.html.erb:32:in `with_index'
+app/views/articles/modals/_createModal.html.erb:32:in `block in _app_views_articles_modals__create_odal_html_erb___80783978999981772_69827381474900'
+app/views/articles/modals/_createModal.html.erb:13:in `_app_views_articles_modals__create_odal_html_erb___80783978999981772_69827381474900'
+app/views/articles/new.js.erb:3:in `_app_views_articles_new_js_erb__3592764709930479152_69827381742620'
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.7ms)
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.0ms)
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (10.4ms)
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from block in included at /home/tasos/.rvm/gems/ruby-2.3.1@meze/bundler/gems/remotipart-aa0386690bd2/lib/remotipart/render_overrides.rb:9)
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from block in included at /home/tasos/.rvm/gems/ruby-2.3.1@meze/bundler/gems/remotipart-aa0386690bd2/lib/remotipart/render_overrides.rb:9)
+Started GET "/index" for 127.0.0.1 at 2017-03-05 23:38:23 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started HEAD "/" for 127.0.0.1 at 2017-03-05 23:38:23 +0200
+Processing by HomeController#index as HTML
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/_homePartial.html.erb (1.2ms)
+  Rendered home/index.html.erb within layouts/application (9.8ms)
+Processing by HomeController#login as HTML
+  Rendering home/login.html.erb within layouts/application
+  Rendered home/login.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 657ms (Views: 644.5ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 728ms (Views: 716.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/app_logo.png" for 127.0.0.1 at 2017-03-05 23:38:23 +0200
+Started GET "/assets/nav_arrow_right.png" for 127.0.0.1 at 2017-03-05 23:38:24 +0200
+Started GET "/assets/icons.woff" for 127.0.0.1 at 2017-03-05 23:38:24 +0200
+Started GET "/events/load_partial" for 127.0.0.1 at 2017-03-05 23:38:25 +0200
+Processing by EventsController#load_partial as JS
+  Rendering events/load_partial.js.erb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "event_translations" ON "event_translations"."event_id" = "events"."id" WHERE "event_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered events/_eventPartial.html.erb (13.5ms)
+  Rendered events/load_partial.js.erb (17.5ms)
+Completed 200 OK in 66ms (Views: 21.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/wines/load_partial" for 127.0.0.1 at 2017-03-05 23:38:26 +0200
+  
+ActionController::RoutingError (uninitialized constant WinesController):
+  
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:268:in `const_get'
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:268:in `block in constantize'
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:266:in `each'
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:266:in `inject'
+activesupport (5.0.1) lib/active_support/inflector/methods.rb:266:in `constantize'
+actionpack (5.0.1) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:30:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+/home/tasos/.rvm/gems/ruby-2.3.1@meze/bundler/gems/remotipart-aa0386690bd2/lib/remotipart/middleware.rb:27:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.1ms)
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (6.7ms)
+Started GET "/products/load_partial" for 127.0.0.1 at 2017-03-05 23:38:26 +0200
+Processing by ProductsController#load_partial as JS
+  Rendering products/load_partial.js.erb
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" INNER JOIN "product_translations" ON "product_translations"."product_id" = "products"."id" WHERE "product_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered products/_productPartial.html.erb (3.7ms)
+  Rendered products/load_partial.js.erb (7.9ms)
+Completed 200 OK in 32ms (Views: 15.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/articles/load_partial" for 127.0.0.1 at 2017-03-05 23:38:27 +0200
+Processing by ArticlesController#load_partial as JS
+  Rendering articles/load_partial.js.erb
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" INNER JOIN "article_translations" ON "article_translations"."article_id" = "articles"."id" WHERE "article_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered articles/_articlePartial.html.erb (3.7ms)
+  Rendered articles/load_partial.js.erb (8.3ms)
+Completed 200 OK in 31ms (Views: 15.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2017-03-05 23:38:27 +0200
+Processing by ArticlesController#new as JS
+  Rendering articles/new.js.erb
+  Rendered articles/modals/_createModal.html.erb (31.3ms)
+  Rendered articles/new.js.erb (35.3ms)
+Completed 200 OK in 50ms (Views: 41.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/English_flag.png" for 127.0.0.1 at 2017-03-05 23:38:28 +0200
+Started GET "/assets/German_flag.png" for 127.0.0.1 at 2017-03-05 23:38:28 +0200
+Started GET "/assets/Greek_flag.png" for 127.0.0.1 at 2017-03-05 23:38:28 +0200
+Started GET "/index" for 127.0.0.1 at 2017-03-05 23:45:09 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/_homePartial.html.erb (0.5ms)
+  Rendered home/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 160ms (Views: 158.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/app_logo.png" for 127.0.0.1 at 2017-03-05 23:45:10 +0200
+Started GET "/assets/icons.woff" for 127.0.0.1 at 2017-03-05 23:45:10 +0200
+Started GET "/assets/nav_arrow_right.png" for 127.0.0.1 at 2017-03-05 23:45:10 +0200
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from block in included at /home/tasos/.rvm/gems/ruby-2.3.1@meze/bundler/gems/remotipart-aa0386690bd2/lib/remotipart/render_overrides.rb:9)
+Started GET "/articles/load_partial" for 127.0.0.1 at 2017-03-05 23:45:14 +0200
+Processing by ArticlesController#load_partial as JS
+  Rendering articles/load_partial.js.erb
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" INNER JOIN "article_translations" ON "article_translations"."article_id" = "articles"."id" WHERE "article_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered articles/_articlePartial.html.erb (9.4ms)
+  Rendered articles/load_partial.js.erb (13.1ms)
+Completed 200 OK in 49ms (Views: 16.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2017-03-05 23:45:42 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/_homePartial.html.erb (1.9ms)
+  Rendered home/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 156ms (Views: 154.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/app_logo.png" for 127.0.0.1 at 2017-03-05 23:45:42 +0200
+Started GET "/assets/icons.woff" for 127.0.0.1 at 2017-03-05 23:45:42 +0200
+Started GET "/assets/nav_arrow_right.png" for 127.0.0.1 at 2017-03-05 23:45:42 +0200
+Started GET "/index" for 127.0.0.1 at 2017-03-05 23:46:04 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/_homePartial.html.erb (1.1ms)
+  Rendered home/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 184ms (Views: 183.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/app_logo.png" for 127.0.0.1 at 2017-03-05 23:46:04 +0200
+Started GET "/assets/icons.woff" for 127.0.0.1 at 2017-03-05 23:46:05 +0200
+Started GET "/assets/nav_arrow_right.png" for 127.0.0.1 at 2017-03-05 23:46:05 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/index" for 127.0.0.1 at 2017-03-05 23:46:30 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/_homePartial.html.erb (0.5ms)
+  Rendered home/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 160ms (Views: 158.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/app_logo.png" for 127.0.0.1 at 2017-03-05 23:46:30 +0200
+Started GET "/assets/icons.woff" for 127.0.0.1 at 2017-03-05 23:46:30 +0200
+Started GET "/assets/nav_arrow_right.png" for 127.0.0.1 at 2017-03-05 23:46:30 +0200
+Started GET "/index" for 127.0.0.1 at 2017-03-05 23:46:42 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/_homePartial.html.erb (0.4ms)
+  Rendered home/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 151ms (Views: 149.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/app_logo.png" for 127.0.0.1 at 2017-03-05 23:46:43 +0200
+Started GET "/assets/icons.woff" for 127.0.0.1 at 2017-03-05 23:46:43 +0200
+Started GET "/assets/nav_arrow_right.png" for 127.0.0.1 at 2017-03-05 23:46:43 +0200
+Started GET "/articles/load_partial" for 127.0.0.1 at 2017-03-05 23:46:52 +0200
+Processing by ArticlesController#load_partial as JS
+  Rendering articles/load_partial.js.erb
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" INNER JOIN "article_translations" ON "article_translations"."article_id" = "articles"."id" WHERE "article_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered articles/_articlePartial.html.erb (1.9ms)
+  Rendered articles/load_partial.js.erb (6.9ms)
+Completed 200 OK in 20ms (Views: 14.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/events/load_partial" for 127.0.0.1 at 2017-03-05 23:46:56 +0200
+Processing by EventsController#load_partial as JS
+  Rendering events/load_partial.js.erb
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "event_translations" ON "event_translations"."event_id" = "events"."id" WHERE "event_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered events/_eventPartial.html.erb (3.3ms)
+  Rendered events/load_partial.js.erb (8.0ms)
+Completed 200 OK in 34ms (Views: 14.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/articles/load_partial" for 127.0.0.1 at 2017-03-05 23:46:57 +0200
+Processing by ArticlesController#load_partial as JS
+  Rendering articles/load_partial.js.erb
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" INNER JOIN "article_translations" ON "article_translations"."article_id" = "articles"."id" WHERE "article_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered articles/_articlePartial.html.erb (1.5ms)
+  Rendered articles/load_partial.js.erb (5.5ms)
+Completed 200 OK in 21ms (Views: 15.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/events/load_partial" for 127.0.0.1 at 2017-03-05 23:46:58 +0200
+Processing by EventsController#load_partial as JS
+  Rendering events/load_partial.js.erb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "event_translations" ON "event_translations"."event_id" = "events"."id" WHERE "event_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered events/_eventPartial.html.erb (3.6ms)
+  Rendered events/load_partial.js.erb (7.3ms)
+Completed 200 OK in 19ms (Views: 11.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/products/load_partial" for 127.0.0.1 at 2017-03-05 23:46:58 +0200
+Processing by ProductsController#load_partial as JS
+  Rendering products/load_partial.js.erb
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" INNER JOIN "product_translations" ON "product_translations"."product_id" = "products"."id" WHERE "product_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered products/_productPartial.html.erb (7.1ms)
+  Rendered products/load_partial.js.erb (13.0ms)
+Completed 200 OK in 34ms (Views: 16.0ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/notifications/load_partial" for 127.0.0.1 at 2017-03-05 23:46:59 +0200
+Processing by NotificationsController#load_partial as JS
+  Rendering notifications/load_partial.js.erb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "notifications" INNER JOIN "notification_translations" ON "notification_translations"."notification_id" = "notifications"."id" WHERE "notification_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered notifications/_notificationPartial.html.erb (5.1ms)
+  Rendered notifications/load_partial.js.erb (10.3ms)
+Completed 200 OK in 34ms (Views: 15.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/admin/load_partial" for 127.0.0.1 at 2017-03-05 23:46:59 +0200
+Processing by AdminController#load_partial as JS
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" ORDER BY "admins"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering admin/load_partial.js.erb
+  [1m[36mAdmin::Translation Load (0.2ms)[0m  [1m[34mSELECT "admin_translations".* FROM "admin_translations" WHERE "admin_translations"."admin_id" = ?[0m  [["admin_id", 1]]
+  Rendered admin/_adminPartial.html.erb (29.6ms)
+  Rendered admin/load_partial.js.erb (34.9ms)
+Completed 200 OK in 75ms (Views: 38.8ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/English_flag.png" for 127.0.0.1 at 2017-03-05 23:46:59 +0200
+Started GET "/assets/German_flag.png" for 127.0.0.1 at 2017-03-05 23:46:59 +0200
+Started GET "/assets/Greek_flag.png" for 127.0.0.1 at 2017-03-05 23:46:59 +0200
+Started GET "/notifications/load_partial" for 127.0.0.1 at 2017-03-05 23:47:00 +0200
+Processing by NotificationsController#load_partial as JS
+  Rendering notifications/load_partial.js.erb
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "notifications" INNER JOIN "notification_translations" ON "notification_translations"."notification_id" = "notifications"."id" WHERE "notification_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered notifications/_notificationPartial.html.erb (1.6ms)
+  Rendered notifications/load_partial.js.erb (6.5ms)
+Completed 200 OK in 17ms (Views: 11.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/admin/load_partial" for 127.0.0.1 at 2017-03-05 23:47:02 +0200
+Processing by AdminController#load_partial as JS
+  [1m[36mAdmin Load (0.2ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" ORDER BY "admins"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering admin/load_partial.js.erb
+  [1m[36mAdmin::Translation Load (0.1ms)[0m  [1m[34mSELECT "admin_translations".* FROM "admin_translations" WHERE "admin_translations"."admin_id" = ?[0m  [["admin_id", 1]]
+  Rendered admin/_adminPartial.html.erb (2.8ms)
+  Rendered admin/load_partial.js.erb (6.4ms)
+Completed 200 OK in 21ms (Views: 13.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/1/edit" for 127.0.0.1 at 2017-03-05 23:47:08 +0200
+Processing by AdminController#edit as JS
+  Parameters: {"id"=>"1"}
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" ORDER BY "admins"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" ORDER BY "admins"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering admin/edit.js.erb
+  [1m[36mAdmin::Translation Load (0.1ms)[0m  [1m[34mSELECT "admin_translations".* FROM "admin_translations" WHERE "admin_translations"."admin_id" = ?[0m  [["admin_id", 1]]
+  Rendered admin/modals/_updateModal.html.erb (8.5ms)
+  Rendered admin/edit.js.erb (13.8ms)
+Completed 200 OK in 26ms (Views: 18.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/notifications/load_partial" for 127.0.0.1 at 2017-03-05 23:47:14 +0200
+Processing by NotificationsController#load_partial as JS
+  Rendering notifications/load_partial.js.erb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "notifications" INNER JOIN "notification_translations" ON "notification_translations"."notification_id" = "notifications"."id" WHERE "notification_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered notifications/_notificationPartial.html.erb (2.1ms)
+  Rendered notifications/load_partial.js.erb (8.3ms)
+Completed 200 OK in 22ms (Views: 14.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/notifications/new" for 127.0.0.1 at 2017-03-05 23:47:15 +0200
+Processing by NotificationsController#new as JS
+  Rendering notifications/new.js.erb
+  Rendered notifications/modals/_createModal.html.erb (14.5ms)
+  Rendered notifications/new.js.erb (19.4ms)
+Completed 200 OK in 36ms (Views: 22.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/products/load_partial" for 127.0.0.1 at 2017-03-05 23:47:22 +0200
+Processing by ProductsController#load_partial as JS
+  Rendering products/load_partial.js.erb
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" INNER JOIN "product_translations" ON "product_translations"."product_id" = "products"."id" WHERE "product_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered products/_productPartial.html.erb (1.7ms)
+  Rendered products/load_partial.js.erb (6.6ms)
+Completed 200 OK in 19ms (Views: 12.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2017-03-05 23:47:23 +0200
+Processing by ProductsController#new as JS
+  Rendering products/new.js.erb
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" ORDER BY "admins"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered products/modals/_createModal.html.erb (15.5ms)
+  Rendered products/new.js.erb (20.4ms)
+Completed 200 OK in 42ms (Views: 26.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/articles/load_partial" for 127.0.0.1 at 2017-03-05 23:47:27 +0200
+Processing by ArticlesController#load_partial as JS
+  Rendering articles/load_partial.js.erb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" INNER JOIN "article_translations" ON "article_translations"."article_id" = "articles"."id" WHERE "article_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered articles/_articlePartial.html.erb (1.9ms)
+  Rendered articles/load_partial.js.erb (7.3ms)
+Completed 200 OK in 19ms (Views: 13.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/products/load_partial" for 127.0.0.1 at 2017-03-05 23:47:28 +0200
+Processing by ProductsController#load_partial as JS
+  Rendering products/load_partial.js.erb
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" INNER JOIN "product_translations" ON "product_translations"."product_id" = "products"."id" WHERE "product_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered products/_productPartial.html.erb (2.3ms)
+  Rendered products/load_partial.js.erb (6.3ms)
+Completed 200 OK in 15ms (Views: 10.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/events/load_partial" for 127.0.0.1 at 2017-03-05 23:47:29 +0200
+Processing by EventsController#load_partial as JS
+  Rendering events/load_partial.js.erb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "event_translations" ON "event_translations"."event_id" = "events"."id" WHERE "event_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered events/_eventPartial.html.erb (2.0ms)
+  Rendered events/load_partial.js.erb (8.1ms)
+Completed 200 OK in 24ms (Views: 15.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2017-03-05 23:47:30 +0200
+Processing by EventsController#new as JS
+  Rendering events/new.js.erb
+  Rendered events/modals/_createModal.html.erb (12.1ms)
+  Rendered events/new.js.erb (17.5ms)
+Completed 200 OK in 31ms (Views: 21.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/load_partial" for 127.0.0.1 at 2017-03-05 23:47:39 +0200
+Processing by ArticlesController#load_partial as JS
+  Rendering articles/load_partial.js.erb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" INNER JOIN "article_translations" ON "article_translations"."article_id" = "articles"."id" WHERE "article_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered articles/_articlePartial.html.erb (2.8ms)
+  Rendered articles/load_partial.js.erb (7.1ms)
+Completed 200 OK in 22ms (Views: 13.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/home/load_partial" for 127.0.0.1 at 2017-03-05 23:47:39 +0200
+Processing by HomeController#load_partial as JS
+  Rendering home/load_partial.js.erb
+  Rendered home/_homePartial.html.erb (1.2ms)
+  Rendered home/load_partial.js.erb (5.7ms)
+Completed 200 OK in 19ms (Views: 12.8ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2017-03-05 23:47:53 +0200
+Processing by AdminController#destroy as HTML
+  Parameters: {"authenticity_token"=>"hDTTfmxh3crq7uqg4DsBZP4D7pKx5hUIgjZY0xpbXNjT87pyRigtxe1vPPeXy+QVguYnjPv031LuYDzvM2TbnA=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-05 23:47:53 +0200
+Processing by HomeController#login as HTML
+  Rendering home/login.html.erb within layouts/application
+  Rendered home/login.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 203ms (Views: 201.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/icons.woff" for 127.0.0.1 at 2017-03-05 23:47:53 +0200
+Started POST "/login" for 127.0.0.1 at 2017-03-05 23:48:06 +0200
+Processing by AdminController#login as JS
+  Parameters: {"utf8"=>"✓", "admin"=>{"username"=>"simplerailsadmin", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."username" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["username", "simplerailsadmin"], ["LIMIT", 1]]
+Completed 200 OK in 72ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2017-03-05 23:48:06 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/_homePartial.html.erb (1.0ms)
+  Rendered home/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 172ms (Views: 168.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/app_logo.png" for 127.0.0.1 at 2017-03-05 23:48:06 +0200
+Started GET "/assets/icons.woff" for 127.0.0.1 at 2017-03-05 23:48:07 +0200
+Started GET "/assets/nav_arrow_right.png" for 127.0.0.1 at 2017-03-05 23:48:07 +0200
+Started GET "/home/load_partial" for 127.0.0.1 at 2017-03-05 23:48:11 +0200
+Processing by HomeController#load_partial as JS
+  Rendering home/load_partial.js.erb
+  Rendered home/_homePartial.html.erb (0.5ms)
+  Rendered home/load_partial.js.erb (4.7ms)
+Completed 200 OK in 16ms (Views: 11.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/load_partial" for 127.0.0.1 at 2017-03-05 23:48:12 +0200
+Processing by ArticlesController#load_partial as JS
+  Rendering articles/load_partial.js.erb
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" INNER JOIN "article_translations" ON "article_translations"."article_id" = "articles"."id" WHERE "article_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered articles/_articlePartial.html.erb (1.7ms)
+  Rendered articles/load_partial.js.erb (5.2ms)
+Completed 200 OK in 16ms (Views: 10.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/events/load_partial" for 127.0.0.1 at 2017-03-05 23:48:12 +0200
+Processing by EventsController#load_partial as JS
+  Rendering events/load_partial.js.erb
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "event_translations" ON "event_translations"."event_id" = "events"."id" WHERE "event_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered events/_eventPartial.html.erb (1.6ms)
+  Rendered events/load_partial.js.erb (6.6ms)
+Completed 200 OK in 21ms (Views: 13.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/events/load_partial" for 127.0.0.1 at 2017-03-05 23:48:13 +0200
+Processing by EventsController#load_partial as JS
+  Rendering events/load_partial.js.erb
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "event_translations" ON "event_translations"."event_id" = "events"."id" WHERE "event_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered events/_eventPartial.html.erb (1.6ms)
+  Rendered events/load_partial.js.erb (5.7ms)
+Completed 200 OK in 17ms (Views: 11.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/products/load_partial" for 127.0.0.1 at 2017-03-05 23:48:13 +0200
+Processing by ProductsController#load_partial as JS
+  Rendering products/load_partial.js.erb
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" INNER JOIN "product_translations" ON "product_translations"."product_id" = "products"."id" WHERE "product_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered products/_productPartial.html.erb (2.6ms)
+  Rendered products/load_partial.js.erb (7.2ms)
+Completed 200 OK in 21ms (Views: 13.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/products/load_partial" for 127.0.0.1 at 2017-03-05 23:48:14 +0200
+Processing by ProductsController#load_partial as JS
+  Rendering products/load_partial.js.erb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "products" INNER JOIN "product_translations" ON "product_translations"."product_id" = "products"."id" WHERE "product_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered products/_productPartial.html.erb (2.8ms)
+  Rendered products/load_partial.js.erb (7.4ms)
+Completed 200 OK in 15ms (Views: 11.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/notifications/load_partial" for 127.0.0.1 at 2017-03-05 23:48:14 +0200
+Processing by NotificationsController#load_partial as JS
+  Rendering notifications/load_partial.js.erb
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "notifications" INNER JOIN "notification_translations" ON "notification_translations"."notification_id" = "notifications"."id" WHERE "notification_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered notifications/_notificationPartial.html.erb (1.6ms)
+  Rendered notifications/load_partial.js.erb (5.4ms)
+Completed 200 OK in 19ms (Views: 10.8ms | ActiveRecord: 0.1ms)
+
+

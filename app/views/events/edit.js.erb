@@ -1,0 +1,5 @@
+$('#modal-placeholder').html("");
+
+$('#modal-placeholder').html("<%= escape_javascript render(:partial => 'events/modals/updateModal') %>");
+
+$('#edit_modal').modal('toggle');

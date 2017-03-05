@@ -1,0 +1,7 @@
+$('#new_modal').modal('toggle');
+
+toastr.success('Saved successfully');
+
+setTimeout(function(){
+ $('.partial-container').html('<%= j(render partial: "/articles/articlePartial") %>')
+}, 200)

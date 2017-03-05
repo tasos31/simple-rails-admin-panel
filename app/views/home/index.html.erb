@@ -1,0 +1,113 @@
+<%if session[:admin]%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+  <title>Rails Admin Panel</title>
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+  <%= content_for :header %>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">My Admin Panel</a>
+      <a class="sidebar-toggle"><i class="icon-paragraph-justify2"></i></a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-icons">
+        <span class="sr-only">Toggle navbar</span>
+        <i class="icon-grid3"></i>
+      </button>
+      <button type="button" class="navbar-toggle offcanvas">
+        <span class="sr-only">Toggle navigation</span>
+        <i class="icon-paragraph-justify2"></i>
+      </button>
+    </div>
+    <ul class="nav navbar-nav navbar-right collapse" id="navbar-icons">
+      <li>
+      <%= button_to "Logout",  logout_path, :method => :delete, :class => "btn btn-lg btn-primary", :style=>"margin-top:8px;", :onclick => "return confirm('Are you sure you want to logout?')" %>
+        </li>
+    </ul>
+  </div>
+  <!-- /navbar -->
+  <!-- Page container -->
+  <div class="page-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-content">
+        <!-- User dropdown -->
+        <div class="user-menu dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <img src="assets/app_logo.png" style="width:100%;height:100%;background-color:white;">
+            <div class="user-info">
+            </div>
+          </a>
+        </div>
+        <!-- /user dropdown -->
+        <!-- Main navigation -->
+        <ul class="navigation">
+          <li class="">
+            <%= link_to load_home_partial_url, :remote => true do%>
+                  <span>Home</span> <i class="icon-home"></i>
+            <%end%>
+          </li>
+          <li class="">
+            <%= link_to load_article_partial_url, :remote => true do%>
+                  <span>News</span> <i class="icon-list2"></i>
+            <%end%>
+          </li>
+          <li class="">
+            <%= link_to load_event_partial_url, :remote => true do%>
+                  <span>Events</span> <i class="icon-list2"></i>
+            <%end%>
+          </li>
+          <li class="">
+            <%= link_to load_product_partial_url, :remote => true do%>
+                  <span>Products</span> <i class="icon-list2"></i>
+            <%end%>
+          </li>
+          <li class="">
+            <%= link_to load_notification_partial_url, :remote => true do%>
+                  <span>Notifications</span> <i class="icon-list2"></i>
+            <%end%>
+          </li>
+          <li class="">
+            <%= link_to load_admin_partial_url, :remote => true do%>
+                  <span>Profile</span> <i class="icon-list2"></i>
+            <%end%>
+          </li>
+        </ul>
+        <!-- /main navigation -->
+      </div>
+    </div>
+    <!-- /sidebar -->
+    <!-- Page content -->
+    <div class="page-content">
+      <!-- Page header -->
+      <!-- /page header -->
+      <!--Partial Container -->
+      <div class="partial-container">
+        <%= render :partial => 'homePartial'%>
+      </div>
+      <!-- /Partial Container -->
+      <!-- /info blocks -->
+      <!-- Footer -->
+      <div class="footer clearfix">
+        <div class="pull-right">Simple Rails Admin Panel, created by Tasos Anesiadis, find me on <a href="https://github.com/roneen31"> Github</a></div>
+      </div>
+      <!-- /footer -->
+    </div>
+    <!-- /page content -->
+  </div>
+  <!-- /page container -->
+  <!-- Modal Placeholder -->
+  <div id="modal-placeholder">
+  </div>
+  <!-- /Modal Placeholder -->
+</body>
+</html>
+<%
+else
+  raise ActionController::RoutingError.new('Not Found')
+end%>

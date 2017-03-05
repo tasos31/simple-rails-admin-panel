@@ -1,0 +1,51 @@
+<div>
+	<td>
+		<% if article.image.blank?%>
+			<img src="http://placehold.it/150x150?text=No+Image" style= "position:absolute">
+		<%else%>
+			<%= image_tag article.image_url(:large_thumb), :style => "position:absolute"%>
+		<%end%>
+	</td>
+	<td>
+		<div style=" margin-left:150px; min-height: 50px;" class="panel panel-default">
+			<div class="tabbable">
+				<div  class="panel-heading">
+					<ul class="nav nav-tabs">
+					<% I18n.available_locales.map.with_index(1) do |locale, index| %>
+			          <li class="<%= index==1 ? 'active' : ' ' %>">
+			            <a href="#tab_<%=article.class.name+article.id.to_s+"_"+locale.to_s%>" data-toggle="tab">
+			              <img src="assets/<%=I18n.t('language_name', locale: locale)%>_flag.png" style="width:20px; height: auto;">
+			              <%= I18n.t('language_name', locale: locale) %>
+			            </a>
+			          </li>
+			        <%end%>
+			        <span class="text-semibold pull-right" style="display: inline">
+				        <%=link_to article_edit_path(article.id), :remote => true,:style=>"",:class => "btn btn-xs btn-success" do %>
+				        	<i class="icon-pencil"></i>
+				        <% end %>
+				        <%=link_to article_destroy_path(article.id), :remote => true, :style=>"",:class => "btn btn-xs btn-danger", :data => {confirm: "Are you sure?"} do %>
+				        	<i class="icon-close"></i>
+				        <% end %>
+					</span>
+			        </ul>
+				</div>
+				<div class="panel-body ">
+				    <div class= "tab-content">
+		                <% I18n.available_locales.map.with_index(1) do |locale, index| %>
+		                  <div id='tab_<%=article.class.name+article.id.to_s+"_"+locale.to_s%>' class='tab-pane fade in <%=index==1 ? 'active': ''%>'>
+		                    <td style="height:5px" class="panel-heading">
+		                    	<%= article.send("title_#{locale}") %>
+		                    </td>
+		                    <hr>
+							<td style="">
+								<%= article.send("text_#{locale}").html_safe %>
+							</td>
+		                    <br>
+		                  </div>
+		                <%end%>
+             		</div>
+				</div>
+			</div>
+		</div>
+	</td>
+</div>

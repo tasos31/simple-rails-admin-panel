@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+<title>Simple Rails Admin Panel</title>
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+</head>
+
+<body class="full-width page-condensed">
+	<!-- Navbar -->
+	<div class="navbar navbar-inverse" role="navigation">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-right">
+				<span class="sr-only">Toggle navbar</span>
+				<i class="icon-grid3"></i>
+			</button>
+			<a class="navbar-brand" href="#">Simple Rails Admin Panel</a>
+		</div>
+		<ul class="nav navbar-nav navbar-right collapse">
+
+		</ul>
+	</div>
+	<!-- /navbar -->
+	<!-- Login wrapper -->
+
+
+	<div class="login-wrapper">
+	<%= form_for(:admin,:remote => true, :html => {id: 'form-signin', class: 'form-signin'}, :url => 'login') do |f| %>
+
+			<div class="popup-header">
+
+				<span class="text-semibold">Administrator Login</span>
+
+			</div>
+			<div class="well">
+				<div class="form-group has-feedback">
+					<label>Username</label>
+					<%= f.text_field :username, class: 'form-control',:html => { type:'text',  name: 'username', required: "", autofocus: ""}, :placeholder => "Username"%>
+					<i class="icon-users form-control-feedback"></i>
+				</div>
+
+				<div class="form-group has-feedback">
+					<label>Password</label>
+					<%= f.password_field :password, class: 'form-control', :html => {type:'password', name: 'password', required: ""}, :placeholder => "Password" %>
+					<i class="icon-lock form-control-feedback"></i>
+				</div>
+
+				<div class="row form-actions">
+
+					<div class="col-xs-6">
+						<button type="submit" class="btn btn-warning pull-right"><i class="icon-menu2"></i> Sign in</button>
+					</div>
+				</div>
+			</div>
+			<% end %>
+	</div>
+	<!-- /login wrapper -->
+    <!-- Footer -->
+		<div class="footer clearfix">
+			<div class="pull-right">Simple Rails Admin Panel, created by Tasos Anesiadis, find me on <a href="https://github.com/roneen31"> Github</a></div>
+		</div>
+    <!-- /footer -->
+</body>
+</html>

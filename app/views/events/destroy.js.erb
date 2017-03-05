@@ -1,0 +1,5 @@
+toastr.info('Deleted successfully');
+
+setTimeout(function(){
+ $('.partial-container').html('<%= j(render partial: "/events/eventPartial") %>')
+}, 200)

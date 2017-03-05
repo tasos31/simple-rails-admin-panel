@@ -1,0 +1,44 @@
+<div>
+	<td>
+		<div style="" class="panel panel-default">
+			<div class="tabbable">
+				<div  class="panel-heading">
+					<ul class="nav nav-tabs">
+					<% I18n.available_locales.map.with_index(1) do |locale, index| %>
+			          <li class="<%= index==1 ? 'active' : ' ' %>">
+			            <a href="#tab_<%=notification.class.name+notification.id.to_s+"_"+locale.to_s%>" data-toggle="tab">
+			              <img src="assets/<%=I18n.t('language_name', locale: locale)%>_flag.png" style="width:20px; height: auto;"> 
+			              <%= I18n.t('language_name', locale: locale) %>
+			            </a>
+			          </li>
+			        <%end%>
+			         
+			        <li class="text-semibold" style="margin-left: 30px;">Notification sent at: <%=notification.created_at.strftime("%d/%m/%Y %H:%M") %></li>
+			        
+			        <span class="text-semibold pull-right" style="display: inline">			   
+				        <%=link_to notification_destroy_path(notification.id), :remote => true, :style=>"",:class => "btn btn-xs btn-danger", :data => {confirm: "Are you sure?"} do %>
+				        	<i class="icon-close"></i>
+				        <% end %>
+					</span>
+			        </ul>
+				</div>
+				<div class="panel-body ">
+				    <div class= "tab-content">
+		                <% I18n.available_locales.map.with_index(1) do |locale, index| %>
+		                  <div id='tab_<%=notification.class.name+notification.id.to_s+"_"+locale.to_s%>' class='tab-pane fade in <%=index==1 ? 'active': ''%>'>
+		                    <td style="height:5px" class="panel-heading">
+		                    	<%= notification.send("title_#{locale}") %> 
+		                    </td>
+		                    <hr>
+							<td style="">
+								<%= notification.send("text_#{locale}").html_safe %> 
+							</td>				                    
+		                    <br>				                    
+		                  </div>
+		                <%end%>
+             		</div>
+				</div>
+			</div>
+		</div>
+	</td>
+</div>

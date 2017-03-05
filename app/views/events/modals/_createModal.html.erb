@@ -1,0 +1,78 @@
+<div class="block">
+  <div aria-hidden="false" data-backdrop="static" data-keyboard="false" style="display: block;" id="new_modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="">
+            <span>&times;</span>
+          </button>
+          <h5 class="">
+            Add News Event                
+          </h5>
+        </div>
+        <%=form_for @event , url: event_create_path, remote: true, multipart: true, authenticity_token: true, html: {class: "form-horizontal"} do |f|%>
+        <div class="modal-body with-padding" >          
+          <h5>Upload Image: </h5>
+          <%= f.file_field :image, :class => 'btn btn-default', 'data-show-upload' => false, :accept => 'image/*', :style=> 'width:100%;' %>
+          <hr>
+          <label class="" style="display:inline;">Date & Time:</label> 
+          <%= f.text_field :datetime, :id=> "datepicker", :class => 'form-control' %>
+          <hr>
+          <div class="tabbable">
+            <ul class="nav nav-tabs">
+              <% I18n.available_locales.map.with_index(1) do |locale, index| %>
+              <li class="<%= index==1 ? 'active' : ' ' %>">
+               <a href="#tab<%=locale%>" data-toggle="tab">
+                 <h5>
+                   <img src="assets/<%=I18n.t('language_name', locale: locale)%>_flag.png" style="width:20px; height: auto;"> 
+                   <%= I18n.t('language_name', locale: locale) %>
+                 </h5>
+               </a>
+             </li>
+             <%end%>
+           </ul>
+           <div class= "tab-content">           
+            <% I18n.available_locales.map.with_index(1) do |locale, index| %>
+            <div id='tab<%=locale%>' class='tab-pane fade in <%=index==1 ? 'active': ''%>'>                                         
+              <h5> <%= I18n.t('language_name', locale: locale) %> Title: </h5>
+              <%= f.text_field "title_#{locale}".to_sym,:class => 'form-control'%>
+              <h5> <%= I18n.t('language_name', locale: locale) %> Text: </h5>
+              <%= f.text_area "text_#{locale}".to_sym ,:style => "height: 150px;",:class => 'wysihtml5 editor wysihtml5-editor'%>
+            </div>
+            <%end%>
+          </div>
+        </div>
+        <br>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-danger"  type="button" data-dismiss="modal">Close</a>
+        <%= submit_tag "Save",:class => 'btn btn-success', :style=> "width:80px" , data: { disable_with: "Saving.." } %>
+      </div>
+    <% end %>
+
+    </div>
+    </div>
+  </div>
+</div>
+<script>
+  $('#datepicker').datetimepicker({
+ 
+ format:'d/m/Y H:i'
+});
+
+  $('.wysihtml5').wysihtml5({
+  toolbar: {
+    "font-styles": false, // Font styling, e.g. h1, h2, etc.
+    "emphasis": true, // Italics, bold, etc.
+    "lists": false, // (Un)ordered lists, e.g. Bullets, Numbers.
+    "html": false, // Button which allows you to edit the generated HTML.
+    "link": false, // Button to insert a link.
+    "image": false, // Button to insert an image.
+    "color": false, // Button to change color of font
+    "blockquote": false // Blockquote
+    
+  }
+});
+
+
+</script>

@@ -1,0 +1,81 @@
+<%add_breadcrumb "Home"%>
+<%add_breadcrumb "Profile"%>
+<hr>
+<div class="callout callout-success fade in">
+	<h5>Profile</h5>
+	<p>Store Details</p>
+</div>
+<div class="breadcrumb-line">
+  <ul class="breadcrumb">
+     <%= render_breadcrumbs :tag => :li, :separator => "" %>
+  </ul>
+  <div class="visible-xs breadcrumb-toggle">
+    <a class="btn btn-link btn-lg btn-icon" data-toggle="collapse" data-target=".breadcrumb-buttons"><i class="icon-menu2"></i></a>
+  </div>
+  <ul class="breadcrumb-buttons collapse"></ul>
+</div>
+<div>
+              <span class="text-semibold pull-right" style="display: inline">        
+                <%=link_to admin_edit_path(@admin.id), :remote => true,:style=>"",:class => "btn btn-xs btn-success" do %>
+                 Edit Profile Data <i class="icon-pencil"></i>
+                <% end %>
+          </span>
+  <td>
+    <% if @admin.image.blank?%>
+      <img src="http://placehold.it/150x150?text=No+Image" style= "">
+    <%else%>
+      <%= image_tag @admin.image_url(:large_thumb), :style => ""%>
+    <%end%>
+  </td>
+ <hr>
+  <td>
+    Address: <%= @admin.address %>
+  </td>
+  <hr>
+    <td>
+    Email: <%= @admin.email %>
+  </td>
+  <hr>
+    <td>
+    Telephone: <%= @admin.telephone %>
+  </td>
+  <hr>
+  <td>
+  Info:
+  <br>
+  <br>
+    <div style="" class="panel panel-default">
+      <div class="tabbable">
+        <div  class="panel-heading">
+          <ul class="nav nav-tabs">
+          <% I18n.available_locales.map.with_index(1) do |locale, index| %>
+                <li class="<%= index==1 ? 'active' : ' ' %>">
+                  <a href="#tab_<%=@admin.class.name+@admin.id.to_s+"_"+locale.to_s%>" data-toggle="tab">
+                    <img src="assets/<%=I18n.t('language_name', locale: locale)%>_flag.png" style="width:20px; height: auto;"> 
+                    <%= I18n.t('language_name', locale: locale) %>
+                  </a>
+                </li>
+              <%end%>
+
+              </ul>
+        </div>
+        <div class="panel-body ">
+            <div class= "tab-content">
+                    <% I18n.available_locales.map.with_index(1) do |locale, index| %>
+                      <div id='tab_<%=@admin.class.name+@admin.id.to_s+"_"+locale.to_s%>' class='tab-pane fade in <%=index==1 ? 'active': ''%>'>
+                        <td style="height:5px" class="panel-heading">
+                          <%= @admin.send("title_#{locale}") %> 
+                        </td>
+                        <hr>
+              <td style="">
+                <%= @admin.send("text_#{locale}").html_safe %> 
+              </td>                           
+                        <br>                            
+                      </div>
+                    <%end%>
+                </div>
+        </div>
+      </div>
+    </div>
+  </td>
+</div>

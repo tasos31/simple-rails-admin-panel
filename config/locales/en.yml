@@ -1,0 +1,6 @@
+en:
+  language_name: "English"
+  language_name_local: "English"
+  datetime:
+    formats:
+      default: "%m/%d/%Y"

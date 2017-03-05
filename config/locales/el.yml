@@ -1,0 +1,6 @@
+el:
+  language_name: "Greek"
+  language_name_local: "Ελληνικά"
+  datetime:
+    formats:
+      default: "%m/%d/%Y"

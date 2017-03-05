@@ -1,0 +1,7 @@
+$('#new_modal').modal('toggle');
+
+toastr.success('Notification Sent');
+
+setTimeout(function(){
+ $('.partial-container').html('<%= j(render partial: "/notifications/notificationPartial") %>')
+}, 200)
