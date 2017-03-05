@@ -82,3 +82,40 @@ App 15821 stdout:
 [ 2017-03-05 23:59:39.2321 14970/7ff170d44700 Ser/Server.h:464 ]: [ServerThr.1] Shutdown finished
 [ 2017-03-05 23:59:39.2322 14970/7ff1728f5740 age/Cor/CoreMain.cpp:907 ]: Checking whether to disconnect long-running connections for process 15039, application /home/tasos/Projects/simple-rails-admin-panel/public (development)
 [ 2017-03-05 23:59:39.4970 14970/7ff1728f5740 age/Cor/CoreMain.cpp:1055 ]: Passenger core shutdown finished
+[ 2017-03-06 00:07:28.2445 17563/7fa9e4fc4740 age/Wat/WatchdogMain.cpp:1281 ]: Starting Passenger watchdog...
+[ 2017-03-06 00:07:28.2487 17566/7f3f1afe2740 age/Cor/CoreMain.cpp:1070 ]: Starting Passenger core...
+[ 2017-03-06 00:07:28.2488 17566/7f3f1afe2740 age/Cor/CoreMain.cpp:245 ]: Passenger core running in multi-application mode.
+[ 2017-03-06 00:07:28.2535 17566/7f3f1afe2740 age/Cor/CoreMain.cpp:820 ]: Passenger core online, PID 17566
+[ 2017-03-06 00:07:28.2578 17574/7fdab3582740 age/Ust/UstRouterMain.cpp:529 ]: Starting Passenger UstRouter...
+[ 2017-03-06 00:07:28.2582 17574/7fdab3582740 age/Ust/UstRouterMain.cpp:342 ]: Passenger UstRouter online, PID 17574
+App 17609 stdout: 
+App 17632 stdout: 
+App 17639 stdout: 
+[ 2017-03-06 00:07:46.1790 17566/7f3f19cb3700 age/Cor/SecurityUpdateChecker.h:350 ]: Security update check: no update found (next check in 24 hours)
+[ 2017-03-06 00:12:31.8313 17566/7f3f1afa0700 age/Cor/CoreMain.cpp:907 ]: Checking whether to disconnect long-running connections for process 17639, application /home/tasos/Projects/simple-rails-admin-panel/public (development)
+App 18150 stdout: 
+App 18169 stdout: 
+[ 2017-03-06 00:19:05.5512 17566/7f3f1afa0700 age/Cor/CoreMain.cpp:907 ]: Checking whether to disconnect long-running connections for process 18169, application /home/tasos/Projects/simple-rails-admin-panel/public (development)
+
+[ 2017-03-06 00:20:41.2573 17566/7f3f19431700 age/Cor/CoreMain.cpp:585 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2017-03-06 00:20:41.2573 17566/7f3f1afe2740 age/Cor/CoreMain.cpp:989 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2017-03-06 00:20:41.2574 17566/7f3f1afe2740 age/Cor/CoreMain.cpp:907 ]: Checking whether to disconnect long-running connections for process 17632, application /home/tasos/Projects/simple-rails-admin-panel/public (development)
+[ 2017-03-06 00:20:41.2575 17566/7f3f19431700 Ser/Server.h:817 ]: [ServerThr.1] Freed 128 spare client objects
+
+[ 2017-03-06 00:20:41.2576 17566/7f3f19431700 Ser/Server.h:464 ]: [ServerThr.1] Shutdown finished
+[ 2017-03-06 00:20:41.2576 17574/7fdab1c2c700 age/Ust/UstRouterMain.cpp:422 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2017-03-06 00:20:41.2576 17566/7f3f13fff700 Ser/Server.h:817 ]: [ServerThr.3] Freed 128 spare client objects
+[ 2017-03-06 00:20:41.2576 17566/7f3f13fff700 Ser/Server.h:464 ]: [ServerThr.3] Shutdown finished
+[ 2017-03-06 00:20:41.2576 17574/7fdab3582740 age/Ust/UstRouterMain.cpp:492 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2017-03-06 00:20:41.2577 17574/7fdab142b700 Ser/Server.h:817 ]: [UstRouterApiServer] Freed 0 spare client objects
+[ 2017-03-06 00:20:41.2577 17574/7fdab142b700 Ser/Server.h:464 ]: [UstRouterApiServer] Shutdown finished
+[ 2017-03-06 00:20:41.2577 17566/7f3f18baf700 Ser/Server.h:817 ]: [ServerThr.2] Freed 128 spare client objects
+[ 2017-03-06 00:20:41.2577 17566/7f3f18baf700 Ser/Server.h:464 ]: [ServerThr.2] Shutdown finished
+[ 2017-03-06 00:20:41.2577 17566/7f3f137fe700 Ser/Server.h:817 ]: [ServerThr.4] Freed 128 spare client objects
+[ 2017-03-06 00:20:41.2578 17566/7f3f137fe700 Ser/Server.h:464 ]: [ServerThr.4] Shutdown finished
+[ 2017-03-06 00:20:41.2578 17566/7f3f12ffd700 Ser/Server.h:817 ]: [ApiServer] Freed 0 spare client objects
+[ 2017-03-06 00:20:41.2578 17566/7f3f12ffd700 Ser/Server.h:464 ]: [ApiServer] Shutdown finished
+[ 2017-03-06 00:20:41.2579 17574/7fdab1c2c700 Ser/Server.h:464 ]: [UstRouter] Shutdown finished
+[ 2017-03-06 00:20:41.2579 17566/7f3f1afe2740 age/Cor/CoreMain.cpp:907 ]: Checking whether to disconnect long-running connections for process 17632, application /home/tasos/Projects/simple-rails-admin-panel/public (development)
+[ 2017-03-06 00:20:41.2580 17574/7fdab3582740 age/Ust/UstRouterMain.cpp:523 ]: Passenger UstRouter shutdown finished
+[ 2017-03-06 00:20:41.5253 17566/7f3f1afe2740 age/Cor/CoreMain.cpp:1055 ]: Passenger core shutdown finished

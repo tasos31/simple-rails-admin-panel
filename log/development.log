@@ -1251,3 +1251,327 @@ Processing by NotificationsController#load_partial as JS
 Completed 200 OK in 19ms (Views: 10.8ms | ActiveRecord: 0.1ms)
 
 
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from block in included at /home/tasos/.rvm/gems/ruby-2.3.1@meze/bundler/gems/remotipart-aa0386690bd2/lib/remotipart/render_overrides.rb:9)
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from block in included at /home/tasos/.rvm/gems/ruby-2.3.1@meze/bundler/gems/remotipart-aa0386690bd2/lib/remotipart/render_overrides.rb:9)
+Started GET "/init/en" for 127.0.0.1 at 2017-03-06 00:07:31 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+SyntaxError (/home/tasos/Projects/simple-rails-admin-panel/app/controllers/api_controller.rb:63: syntax error, unexpected ':', expecting keyword_end
+		return json: @articles
+		            ^):
+  
+app/controllers/api_controller.rb:63: syntax error, unexpected ':', expecting keyword_end
+Started HEAD "/" for 127.0.0.1 at 2017-03-06 00:07:31 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+Processing by HomeController#login as HTML
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.5ms)
+  Rendering home/login.html.erb within layouts/application
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered home/login.html.erb within layouts/application (9.7ms)
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (8.8ms)
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (39.4ms)
+Completed 200 OK in 819ms (Views: 806.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/init/en" for 127.0.0.1 at 2017-03-06 00:07:49 +0200
+Processing by ApiController#init as HTML
+  Parameters: {"locale"=>"en"}
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 2.6ms)
+
+
+  
+NameError (uninitialized constant ApiController::Service):
+  
+app/controllers/api_controller.rb:13:in `init'
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.1ms)
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (20.7ms)
+Started GET "/init/en" for 127.0.0.1 at 2017-03-06 00:08:22 +0200
+Processing by ApiController#init as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" INNER JOIN "article_translations" ON "article_translations"."article_id" = "articles"."id" WHERE "article_translations"."locale" = ? ORDER BY "articles"."created_at" DESC[0m  [["locale", "en"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "event_translations" ON "event_translations"."event_id" = "events"."id" WHERE "event_translations"."locale" = ? ORDER BY "events"."datetime" DESC[0m  [["locale", "en"]]
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" ORDER BY "admins"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mAdmin::Translation Load (0.2ms)[0m  [1m[34mSELECT "admin_translations".* FROM "admin_translations" WHERE "admin_translations"."admin_id" = ?[0m  [["admin_id", 1]]
+[active_model_serializers]   [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "product_translations" ON "product_translations"."product_id" = "products"."id" WHERE "product_translations"."locale" = ? ORDER BY "products"."position" ASC[0m  [["locale", "en"]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.5ms)
+Completed 200 OK in 86ms (Views: 4.5ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/article_init/en" for 127.0.0.1 at 2017-03-06 00:08:30 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/article_init/en"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered collection of /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [51 times] (10.8ms)
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (4.8ms)
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (40.0ms)
+Started GET "/articles_init/en" for 127.0.0.1 at 2017-03-06 00:08:40 +0200
+Processing by ApiController#articles_init as HTML
+  Parameters: {"locale"=>"en"}
+Completed 406 Not Acceptable in 23ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::UnknownFormat (ApiController#articles_init is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.0.1) lib/action_controller/metal/implicit_render.rb:56:in `default_render'
+actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+/home/tasos/.rvm/gems/ruby-2.3.1@meze/bundler/gems/remotipart-aa0386690bd2/lib/remotipart/middleware.rb:27:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+request_store (1.3.2) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/rack/thread_handler_extension.rb:97:in `process_request'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/request_handler/thread_handler.rb:152:in `accept_and_process_next_request'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/request_handler/thread_handler.rb:113:in `main_loop'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/request_handler.rb:416:in `block (3 levels) in start_threads'
+passenger (5.1.1) src/ruby_supportlib/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.5ms)
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (19.0ms)
+Started GET "/articles_init/en" for 127.0.0.1 at 2017-03-06 00:09:32 +0200
+  
+SyntaxError (/home/tasos/Projects/simple-rails-admin-panel/app/controllers/api_controller.rb:47: syntax error, unexpected ',', expecting '}'
+...ent_hash, products: @products,, profile: @profile_hash}
+...                               ^):
+  
+app/controllers/api_controller.rb:47: syntax error, unexpected ',', expecting '}'
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.1ms)
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/tasos/.rvm/gems/ruby-2.3.1@meze/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (20.4ms)
+Started GET "/articles_init/en" for 127.0.0.1 at 2017-03-06 00:09:42 +0200
+Processing by ApiController#articles_init as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" INNER JOIN "article_translations" ON "article_translations"."article_id" = "articles"."id" WHERE "article_translations"."locale" = ? ORDER BY "articles"."created_at" DESC[0m  [["locale", "en"]]
+  Rendered collection of templates [0 times] (0.0ms)
+Completed 200 OK in 19ms (Views: 3.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/articles_init/en" for 127.0.0.1 at 2017-03-06 00:10:01 +0200
+Processing by ApiController#articles_init as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" INNER JOIN "article_translations" ON "article_translations"."article_id" = "articles"."id" WHERE "article_translations"."locale" = ? ORDER BY "articles"."created_at" DESC[0m  [["locale", "en"]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.17ms)
+Completed 200 OK in 56ms (Views: 41.6ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/articles_init/en" for 127.0.0.1 at 2017-03-06 00:13:30 +0200
+Processing by ApiController#articles_init as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" INNER JOIN "article_translations" ON "article_translations"."article_id" = "articles"."id" WHERE "article_translations"."locale" = ? ORDER BY "articles"."created_at" DESC[0m  [["locale", "en"]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.1ms)
+Completed 200 OK in 14ms (Views: 2.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/articles_init/en" for 127.0.0.1 at 2017-03-06 00:13:32 +0200
+Processing by ApiController#articles_init as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" INNER JOIN "article_translations" ON "article_translations"."article_id" = "articles"."id" WHERE "article_translations"."locale" = ? ORDER BY "articles"."created_at" DESC[0m  [["locale", "en"]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.08ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-06 00:13:46 +0200
+Processing by HomeController#login as HTML
+  Rendering home/login.html.erb within layouts/application
+  Rendered home/login.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 845ms (Views: 843.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/icons.woff" for 127.0.0.1 at 2017-03-06 00:13:48 +0200
+Started POST "/login" for 127.0.0.1 at 2017-03-06 00:14:00 +0200
+Processing by AdminController#login as JS
+  Parameters: {"utf8"=>"✓", "admin"=>{"username"=>"simplerailsadmin", "password"=>"[FILTERED]"}}
+  [1m[36mAdmin Load (0.1ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."username" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["username", "simplerailsadmin"], ["LIMIT", 1]]
+Completed 200 OK in 77ms (Views: 0.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at 2017-03-06 00:14:00 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/_homePartial.html.erb (1.0ms)
+  Rendered home/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 180ms (Views: 179.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/app_logo.png" for 127.0.0.1 at 2017-03-06 00:14:00 +0200
+Started GET "/assets/icons.woff" for 127.0.0.1 at 2017-03-06 00:14:00 +0200
+Started GET "/assets/nav_arrow_right.png" for 127.0.0.1 at 2017-03-06 00:14:00 +0200
+Started GET "/articles/load_partial" for 127.0.0.1 at 2017-03-06 00:14:02 +0200
+Processing by ArticlesController#load_partial as JS
+  Rendering articles/load_partial.js.erb
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" INNER JOIN "article_translations" ON "article_translations"."article_id" = "articles"."id" WHERE "article_translations"."locale" = ?[0m  [["locale", "en"]]
+  Rendered articles/_articlePartial.html.erb (3.7ms)
+  Rendered articles/load_partial.js.erb (7.4ms)
+Completed 200 OK in 19ms (Views: 12.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2017-03-06 00:14:03 +0200
+Processing by ArticlesController#new as JS
+  Rendering articles/new.js.erb
+  Rendered articles/modals/_createModal.html.erb (17.7ms)
+  Rendered articles/new.js.erb (22.9ms)
+Completed 200 OK in 39ms (Views: 28.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/English_flag.png" for 127.0.0.1 at 2017-03-06 00:14:03 +0200
+Started GET "/assets/German_flag.png" for 127.0.0.1 at 2017-03-06 00:14:03 +0200
+Started GET "/assets/Greek_flag.png" for 127.0.0.1 at 2017-03-06 00:14:03 +0200
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from block in included at /home/tasos/.rvm/gems/ruby-2.3.1@meze/bundler/gems/remotipart-aa0386690bd2/lib/remotipart/render_overrides.rb:9)
+Started POST "/articles/create" for 127.0.0.1 at 2017-03-06 00:14:16 +0200
+Processing by ArticlesController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VY8oXmotGUMGRGvFJBvouXFfult57KZget7hbqL1FtsCSEFSQGTpTAHFvZJT6w3IDbpzRTP+bDoWiIVSi8qRnw==", "article"=>{"title_en"=>"123123123", "text_en"=>"3123", "title_de"=>"sssasdadsadsad", "text_de"=>"123", "title_el"=>"xzczxczxczx", "text_el"=>"12321312"}, "_wysihtml5_mode"=>"1", "commit"=>"Save"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", 2017-03-05 22:14:16 UTC], ["updated_at", 2017-03-05 22:14:16 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "article_translations" ("article_id", "locale", "created_at", "updated_at", "title", "text") VALUES (?, ?, ?, ?, ?, ?)[0m  [["article_id", 1], ["locale", "en"], ["created_at", 2017-03-05 22:14:16 UTC], ["updated_at", 2017-03-05 22:14:16 UTC], ["title", "123123123"], ["text", "3123"]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "article_translations" ("article_id", "locale", "created_at", "updated_at", "title", "text") VALUES (?, ?, ?, ?, ?, ?)[0m  [["article_id", 1], ["locale", "de"], ["created_at", 2017-03-05 22:14:16 UTC], ["updated_at", 2017-03-05 22:14:16 UTC], ["title", "sssasdadsadsad"], ["text", "123"]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "article_translations" ("article_id", "locale", "created_at", "updated_at", "title", "text") VALUES (?, ?, ?, ?, ?, ?)[0m  [["article_id", 1], ["locale", "el"], ["created_at", 2017-03-05 22:14:16 UTC], ["updated_at", 2017-03-05 22:14:16 UTC], ["title", "xzczxczxczx"], ["text", "12321312"]]
+  [1m[35m (642.9ms)[0m  [1m[36mcommit transaction[0m
+  Rendering articles/create.js.erb
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles"[0m
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  [1m[36mArticle::Translation Load (0.1ms)[0m  [1m[34mSELECT "article_translations".* FROM "article_translations" WHERE "article_translations"."article_id" = ?[0m  [["article_id", 1]]
+  Rendered collection of articles/_article.html.erb [1 times] (3.2ms)
+  Rendered articles/_articlePartial.html.erb (5.7ms)
+  Rendered articles/create.js.erb (7.1ms)
+Completed 200 OK in 675ms (Views: 8.8ms | ActiveRecord: 644.8ms)
+
+
+Started GET "/articles_init/en" for 127.0.0.1 at 2017-03-06 00:14:22 +0200
+Processing by ApiController#articles_init as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" INNER JOIN "article_translations" ON "article_translations"."article_id" = "articles"."id" WHERE "article_translations"."locale" = ? ORDER BY "articles"."created_at" DESC[0m  [["locale", "en"]]
+  [1m[36mArticle::Translation Load (0.1ms)[0m  [1m[34mSELECT "article_translations".* FROM "article_translations" WHERE "article_translations"."article_id" = 1[0m
+No serializer found for resource: #<Article id: 1, image: nil, created_at: "2017-03-05 22:14:16", updated_at: "2017-03-05 22:14:16">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Article::ActiveRecord_Relation (1.3ms)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/articles_init/el" for 127.0.0.1 at 2017-03-06 00:14:36 +0200
+Processing by ApiController#articles_init as HTML
+  Parameters: {"locale"=>"el"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" INNER JOIN "article_translations" ON "article_translations"."article_id" = "articles"."id" WHERE "article_translations"."locale" = ? ORDER BY "articles"."created_at" DESC[0m  [["locale", "el"]]
+  [1m[36mArticle::Translation Load (0.2ms)[0m  [1m[34mSELECT "article_translations".* FROM "article_translations" WHERE "article_translations"."article_id" = 1[0m
+No serializer found for resource: #<Article id: 1, image: nil, created_at: "2017-03-05 22:14:16", updated_at: "2017-03-05 22:14:16">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Article::ActiveRecord_Relation (1.22ms)
+Completed 200 OK in 8ms (Views: 5.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/articles_init/de" for 127.0.0.1 at 2017-03-06 00:14:40 +0200
+Processing by ApiController#articles_init as HTML
+  Parameters: {"locale"=>"de"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" INNER JOIN "article_translations" ON "article_translations"."article_id" = "articles"."id" WHERE "article_translations"."locale" = ? ORDER BY "articles"."created_at" DESC[0m  [["locale", "de"]]
+  [1m[36mArticle::Translation Load (0.3ms)[0m  [1m[34mSELECT "article_translations".* FROM "article_translations" WHERE "article_translations"."article_id" = 1[0m
+No serializer found for resource: #<Article id: 1, image: nil, created_at: "2017-03-05 22:14:16", updated_at: "2017-03-05 22:14:16">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Article::ActiveRecord_Relation (2.57ms)
+Completed 200 OK in 9ms (Views: 6.9ms | ActiveRecord: 0.5ms)
+
+

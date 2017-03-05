@@ -15,9 +15,11 @@ Rails.application.routes.draw do
     post 'login' => :create
     delete 'logout' => :destroy
   end
-  
+
   #API Routes
-  get '/init/:locale' => 'api#init'
+  get '/articles_init/:locale' => 'api#articles_init'
+  get '/events_init/:locale' => 'api#events_init'
+  get '/products_init/:locale' => 'api#products_init'
   #get '/test_init/:locale' => 'api#test_init'
 
   #Article Routes
@@ -70,5 +72,5 @@ Rails.application.routes.draw do
   get '/notifications/:id/destroy', to: 'notifications#destroy',:as => 'notification_destroy'
   get '/notifications/:id/edit', to: 'notifications#edit', :as => 'notification_edit'
   patch '/notifications/:id/update', to: 'notifications#update', :as => 'notification_update'
-    
+
 end
