@@ -21,7 +21,7 @@ class NotificationsController < ApplicationController
 		end
 
 		if !@empty_field_flag
-			params = {"app_id" => "b1639a62-0801-4e98-b92a-15c5172702e6", 
+			params = {"app_id" => "#############################", 
 			          "contents" => {"en" => @notification.text_en, "de" => @notification.text_de},
 			          "included_segments" => ["All"]}
 			uri = URI.parse('https://onesignal.com/api/v1/notifications')
@@ -30,7 +30,7 @@ class NotificationsController < ApplicationController
 
 			request = Net::HTTP::Post.new(uri.path,
 			                              'Content-Type'  => 'application/json;charset=utf-8',
-			                              'Authorization' => "Basic YThjYjc3MTQtYWJhYy00YzU4LWE2MGYtZmEzMWYwNTJkZjYx")
+			                              'Authorization' => "Basic #############################")
 			request.body = params.as_json.to_json
 			response = http.request(request) 
 			puts response.body	
