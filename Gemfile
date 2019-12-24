@@ -60,7 +60,7 @@ gem 'jquery-ui-rails'
 
 
 gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
-gem 'mini_magick', '3.8.0'
+gem 'mini_magick', '4.9.5'
 gem 'remotipart', github: 'urielhdz/remotipart', ref: 'master'
 
 gem 'jquery-minicolors-rails'
